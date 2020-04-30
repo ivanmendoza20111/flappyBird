@@ -43,6 +43,13 @@ function keyDown() {
     personaje.y -= 35;
 }
 
+function resize() {
+    contexto.height = window.innerHeight;
+    contexto.width = window.innerWidth;
+
+    contexto.style.height = ""+window.innerHeight+"px";
+}
+
 //BUCLE
 setInterval(loop, 1000/FPS)
 function loop() {
@@ -87,11 +94,12 @@ function loop() {
 
     // Condiciones
     personaje.y += gravedad;
-
     contexto.fillStyle = "rgba(0,0,0,1)";
     contexto.font = "25px Arial"
     contexto.fillText("Score: " + score, 10, contexto.canvas.height - 40)
 }
 
 // Eventos
+window.addEventListener("resize",resize);
+
 window.addEventListener("keydown", keyDown);
